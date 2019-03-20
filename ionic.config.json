@@ -1,5 +1,7 @@
 {
   "name": "ProyectoGeoposicionamientoInventarioParques",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

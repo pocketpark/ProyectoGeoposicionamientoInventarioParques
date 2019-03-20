@@ -15,7 +15,9 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'coordenada-uno', loadChildren: './coordenada-uno/coordenada-uno.module#CoordenadaUnoPageModule' }
+  { path: 'coordenada-uno', loadChildren: './coordenada-uno/coordenada-uno.module#CoordenadaUnoPageModule' },
+  { path: 'vista-parque', loadChildren: './vista-parque/vista-parque.module#VistaParquePageModule' },
+  { path: 'ambientes', loadChildren: './ambientes/ambientes.module#AmbientesPageModule' }
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NavController} from "@ionic/angular";
 @Component({
   selector: 'app-coordenada-uno',
   templateUrl: './coordenada-uno.page.html',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoordenadaUnoPage implements OnInit {
 
-  constructor() { }
+  constructor (public navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+  irinicio(){
+    this.navCtrl.navigateForward("home"); 
+  }
+    
+    irVistaParque(){
+    this.navCtrl.navigateForward("vista-parque");
   }
 
 }

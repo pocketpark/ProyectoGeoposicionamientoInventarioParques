@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ambientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-item>
+      <ion-label>Seleccione un Ambiente</ion-label>
+      <ion-select okText="Aceptar" cancelText="Cancelar">
+        <ion-select-option value="brown">Cancha</ion-select-option>
+        <ion-select-option value="blonde">Gimnasio </ion-select-option>
+        <ion-select-option value="black">Zona verde</ion-select-option>
+        <ion-select-option value="red">Atracciones</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Estado</ion-label>
+      <ion-select okText="Aceptar" cancelText="Cancelar">
+        <ion-select-option value="brown">Excelente</ion-select-option>
+        <ion-select-option value="blonde">Sobresaliente </ion-select-option>
+        <ion-select-option value="black">Aceptable</ion-select-option>
+        <ion-select-option value="red">Insuficiente</ion-select-option>
+        <ion-select-option value="red">Deficiente</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label type='text'>GeoReferenciar</ion-label>
+      <ion-icon name="locate"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label>Coordenada X</ion-label>
+      <ion-input disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Coordenada Y</ion-label>
+      <ion-input disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label type='text'>Tomar Foto</ion-label>
+      <ion-icon (click)="tomarFoto()" name="camera"></ion-icon>
+      <ion-item>
+        <ion-checkbox disabled></ion-checkbox>
+      </ion-item>
+    </ion-item>
+    <ion-item>
+        <ion-label type='text'>Novedad</ion-label>
+            <ion-textarea placeholder="Si evidencia alguna novedad, por favor registrarla. =)"></ion-textarea>
+      </ion-item>
+    <ion-button (click)="irVistaParque()" name="Cancelar" color="primary">Cancelar</ion-button>
+    <ion-button (click)="" name="VistaParque" color="primary">Registrar</ion-button>
+  </ion-card>
+</ion-content>

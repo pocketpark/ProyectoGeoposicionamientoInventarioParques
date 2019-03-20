@@ -4,6 +4,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title>Coordenadas del parque</ion-card-title>
+    </ion-card-header>
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-item>
+      <ion-label>Coordenada X</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Coordenada Y</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-button  (click)="irinicio()" name="Cancelar" color="primary">Cancelar</ion-button>
+    <ion-button (click)="irVistaParque()" name="VistaParque" color="primary">Consultar</ion-button>
+  </ion-card>
 </ion-content>
