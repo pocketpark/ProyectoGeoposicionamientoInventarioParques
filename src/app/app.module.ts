@@ -9,9 +9,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { AmbienteModalPage } from '../app/ambiente-modal/ambiente-modal.page'
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent,AmbienteModalPage],
+  entryComponents: [AmbienteModalPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

@@ -15,9 +15,26 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'coordenada-uno', loadChildren: './coordenada-uno/coordenada-uno.module#CoordenadaUnoPageModule' },
-  { path: 'vista-parque', loadChildren: './vista-parque/vista-parque.module#VistaParquePageModule' },
-  { path: 'ambientes', loadChildren: './ambientes/ambientes.module#AmbientesPageModule' }
+  { 
+    path: 'coordenada-uno',
+    loadChildren: './coordenada-uno/coordenada-uno.module#CoordenadaUnoPageModule' 
+  },
+  { 
+    path: 'vista-parque',
+    loadChildren: './vista-parque/vista-parque.module#VistaParquePageModule'
+  },
+  { 
+    path: 'ambientes',
+    loadChildren: './ambientes/ambientes.module#AmbientesPageModule'
+  },
+  { 
+    path: 'ambiente-modal',
+    loadChildren: './ambiente-modal/ambiente-modal.module#AmbienteModalPageModule' 
+  },
+  { 
+    path: 'registro-exitoso',
+    loadChildren: './registro-exitoso/registro-exitoso.module#RegistroExitosoPageModule'
+   }
 ];
 
 @NgModule({

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="espacio">
+    <ion-card-header>
+      <ion-card-title>Desea realizar este registro?</ion-card-title>
+      <ion-item>
+        <ion-label>Ambiente: {{modalNombreAmbiente}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Estado Ambiente: {{modalNombreEstadoAmbiente}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Coordenadas X: 1<!--{{modalCoordenasX}}--></ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Coordenadas Y: 2 <!--{{modalCoordenasY}}--></ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Foto: miimagen.jpg</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Novedad: {{modalNovedad}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+    </ion-card-header>
+    <ion-button class='botonaceptarregistro' (click)="cancelarRegistro()" name="cancelar" color="primary">Cancelar</ion-button>
+    <ion-button  class='botonaceptarregistro' (click)="aceptarRegitro()" name="seguir" color="primary">Aceptar</ion-button>
+  </ion-card>
+</ion-content>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController} from "@ionic/angular";
+import { NavController } from "@ionic/angular";
 @Component({
   selector: 'app-vista-parque',
   templateUrl: './vista-parque.page.html',
@@ -11,11 +11,11 @@ export class VistaParquePage implements OnInit {
 
   ngOnInit() {
   }
-  irCoordenadaParque(){
-    this.navCtrl.navigateForward("coordenada-uno"); 
+  irCoordenadaParque() {
+    this.navCtrl.navigateForward("coordenada-uno");
   }
-    
-  irAmbientes(){
-    this.navCtrl.navigateForward("ambientes");
+
+  mostrarAmbiente() {
+    this.navCtrl.navigateForward('ambientes');
   }
 }

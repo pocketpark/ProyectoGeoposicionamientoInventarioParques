@@ -1,24 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Ingrese coordenadas</ion-title>
+    <ion-title>
+      <!--Ingrese coordenadas-->
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card class="welcome-card">
+  <ion-card class="espacio">
     <ion-card-header>
       <ion-card-title>Coordenadas del parque</ion-card-title>
     </ion-card-header>
-    <ion-img src="/assets/shapes.svg"></ion-img>
-    <ion-item>
+    <ion-img src="/assets/imagenes/mapaCordenadas.jpg"></ion-img>
+    <ion-item class="espaciocordenada">
       <ion-label>Coordenada X</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]='coordenadaX' name='coordenadaX'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Coordenada Y</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]='coordenadaY' name='coordenadaY'></ion-input>
     </ion-item>
-    <ion-button  (click)="irinicio()" name="Cancelar" color="primary">Cancelar</ion-button>
-    <ion-button (click)="irVistaParque()" name="VistaParque" color="primary">Consultar</ion-button>
+      <ion-button class='i' (click)="irinicio()" name="Cancelar"  color="primary">Cancelar</ion-button>
+      <ion-button class='i' (click)="validarCoordenadas()" name="VistaParque" color="primary">Consultar</ion-button>
   </ion-card>
 </ion-content>
