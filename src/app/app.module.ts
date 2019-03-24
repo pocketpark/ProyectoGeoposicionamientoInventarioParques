@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AmbienteModalPage } from '../app/ambiente-modal/ambiente-modal.page'
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 @NgModule({
   declarations: [AppComponent,AmbienteModalPage],
   entryComponents: [AmbienteModalPage],
@@ -22,6 +23,7 @@ import { AmbienteModalPage } from '../app/ambiente-modal/ambiente-modal.page'
     StatusBar,
     SplashScreen,
     Camera,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
