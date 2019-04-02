@@ -13,9 +13,7 @@ export class VistaParquePage implements OnInit {
   title: string = ' ';
   lat: number;
   lng: number;
-   
   zoom: number = 8;
-
   public arreglo: Array<{ lat: any, lng: any, title: string}> = [
     {lat:4.5646909859967,lng:-74.1650178231759, title:'DESARROLLO ARBORIZADORA ALTA'}, 
     {lat:4.5619427108137,lng:-74.1009777961402, title:'URBANIZACIÓN LAS GUACAMAYA'},

@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AmbientesPage } from './ambientes.page';
-
+import { AgmCoreModule } from '@agm/core';
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +19,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    AgmCoreModule,
     RouterModule.forChild(routes)
   ],
   declarations: [AmbientesPage]

@@ -1,12 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><!--ambientes--></ion-title>
+    <ion-title>
+      <!--ambientes-->
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card class="espacio">
-    <ion-img class = "imagen" src="/assets/imagenes/parqueotono.png"></ion-img>
     <ion-item>
       <ion-label>Seleccione un Ambiente</ion-label>
       <ion-select [(ngModel)]="ambiente" name="ambiente" okText="Aceptar" cancelText="Cancelar">
@@ -18,7 +19,7 @@
     </ion-item>
     <ion-item *ngIf="this.ambiente!=''">
       <ion-label>Estado</ion-label>
-      <ion-select  [(ngModel)]="estadoAmbiente" name="estadoAmbiente" okText="Aceptar" cancelText="Cancelar">
+      <ion-select [(ngModel)]="estadoAmbiente" name="estadoAmbiente" okText="Aceptar" cancelText="Cancelar">
         <ion-select-option value="Excelente">Excelente</ion-select-option>
         <ion-select-option value="Sobresaliente">Sobresaliente </ion-select-option>
         <ion-select-option value="Aceptable">Aceptable</ion-select-option>
@@ -28,22 +29,22 @@
     </ion-item>
     <ion-item *ngIf="this.estadoAmbiente!=''">
       <ion-label type='text'>GeoReferenciar</ion-label>
-      <ion-icon name="locate"></ion-icon>
+      <ion-icon name="locate" (click)='getUserLocation(true)'></ion-icon>
     </ion-item>
-    <agm-map [zoom]= "zoom"  [latitude]="lat" [longitude]="lng">
+      <agm-map *ngIf='this.showPark' [latitude]="lat" [longitude]="lng">
         <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
+      </agm-map>
     <ion-item *ngIf="this.estadoAmbiente!=''">
-      <ion-label>Coordenada X</ion-label>
+      <ion-label>Coordenada lng</ion-label>
       <!-- quitar el value y hacer la funcion de la geo refenrenciacion,con la api y asi tome el valor en el input-->
-      <ion-input disabled value='1' [(ngModel)]="coordenasX" name="coordenasX"></ion-input>
+      <ion-input disabled value='{{lng}}' [(ngModel)]="coordenasX" name="coordenasX"></ion-input>
     </ion-item>
     <ion-item *ngIf="this.estadoAmbiente!=''">
-      <ion-label>Coordenada Y</ion-label>
+      <ion-label>Coordenada lat</ion-label>
       <!-- quitar el value y hacer la funcion de la geo refenrenciacion,con la api y asi tome el valor en el input-->
-      <ion-input disabled value='2' [(ngModel)]="coordenasY" name="coordenasY"></ion-input>
+      <ion-input disabled value='{{lat}}' [(ngModel)]="coordenasY" name="coordenasY"></ion-input>
     </ion-item>
-    <ion-item *ngIf="this.estadoAmbiente!=''"> 
+    <ion-item *ngIf="this.estadoAmbiente!=''">
       <ion-label type='text'>Tomar Foto</ion-label>
       <ion-icon (click)="tomarFoto()" name="camera"></ion-icon>
       <ion-item>
@@ -56,6 +57,7 @@
         placeholder="Si evidencia alguna novedad, por favor registrarla. =)"></ion-textarea>
     </ion-item>
     <ion-button class='botonregistro' (click)="irVistaParque()" name="Cancelar" color="primary">Cancelar</ion-button>
-    <ion-button class='botonregistro' (click)="validarFormulario()" name="VistaParque" color="primary">Registrar</ion-button>
+    <ion-button class='botonregistro' (click)="validarFormulario()" name="VistaParque" color="primary">Registrar
+    </ion-button>
   </ion-card>
 </ion-content>

@@ -9,9 +9,11 @@ import { AgmCoreModule } from '@agm/core';
   styleUrls: ['./ambientes.page.scss'],
 })
 export class AmbientesPage implements OnInit {
+  showPark:boolean=false;
   title: string = ' ';
   lat: number;
   lng: number;
+  zoom: number = 8;
   public ambiente:any='';
   public estadoAmbiente:any='';
   public coordenasX:any='';
@@ -77,12 +79,12 @@ export class AmbientesPage implements OnInit {
     });
     await alert.present();
   }
-  getUserLocation(){
+  getUserLocation(value){
+    this.showPark=value;
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(position=>{
         this.lat= position.coords.latitude;
         this.lng= position.coords.longitude;
-        
       });
     }
   }
