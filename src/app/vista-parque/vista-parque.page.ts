@@ -11,9 +11,11 @@ declare var google;
 })
 export class VistaParquePage implements OnInit {
   title: string = ' ';
-  lat: number = 51.678418;
-  lng: number = 7.809007;
-  mapRef = null;
+  lat: number;
+  lng: number;
+   
+  zoom: number = 8;
+
   public arreglo: Array<{ lat: any, lng: any, title: string}> = [
     {lat:4.5646909859967,lng:-74.1650178231759, title:'DESARROLLO ARBORIZADORA ALTA'}, 
     {lat:4.5619427108137,lng:-74.1009777961402, title:'URBANIZACIÓN LAS GUACAMAYA'},
@@ -23,6 +25,7 @@ export class VistaParquePage implements OnInit {
 
   ngOnInit() {
     //this.loadMap();
+    this.getUserLocation();
   }
   irCoordenadaParque() {
     this.navCtrl.navigateForward("coordenada-uno");
@@ -32,8 +35,30 @@ export class VistaParquePage implements OnInit {
     this.navCtrl.navigateForward('ambientes');
   }
 
- 
+  getUserLocation(){
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(position=>{
+        this.lat= position.coords.latitude;
+        this.lng= position.coords.longitude;
+        
+      });
+    }
+  }
+  //
+  private addMarket(){
+    for(let i=0;i<this.arreglo.length;i++){
+     this.paintMarket(this.arreglo[i].lat,this.arreglo[i].lng); // pintar los marcadores de las otras ubicaciones
+    }
+  }
 
+  private paintMarket(lat:number,lng:number){
+    const marker = new google.maps.Marker({
+      position:{lat,lng},
+      zoom:8,
+     // map:this.mapRef,
+     // title:'hello word'
+    });
+  }
 
 
 
