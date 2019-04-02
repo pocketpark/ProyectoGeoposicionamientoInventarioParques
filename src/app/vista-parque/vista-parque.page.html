@@ -9,7 +9,11 @@
     <ion-card-header class='tituloparque'>
       <ion-card-title>PARQUE</ion-card-title>
     </ion-card-header>
-    <div id='map' (Click)='currentLocate($event)'></div>
+    <h1>{{ title }}</h1>
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+    <!-- <div id='map' (Click)='currentLocate($event)'></div> -->
     <!-- <ion-img src="/assets/imagenes/parque.png"></ion-img> -->
     <ion-button  class='vistaparque' (click)="irCoordenadaParque()" name="Atras" color="primary">Atras</ion-button>
     <ion-button class='vistaparque' (click)="mostrarAmbiente()" name="Ambiente" color="primary">Aceptar</ion-button>

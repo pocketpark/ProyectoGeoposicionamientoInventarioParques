@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController,LoadingController } from "@ionic/angular";
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { ReturnStatement } from '@angular/compiler';
+import { AgmCoreModule } from '@agm/core';
+
 declare var google;
 @Component({
   selector: 'app-vista-parque',
@@ -9,6 +10,9 @@ declare var google;
   styleUrls: ['./vista-parque.page.scss'],
 })
 export class VistaParquePage implements OnInit {
+  title: string = ' ';
+  lat: number = 51.678418;
+  lng: number = 7.809007;
   mapRef = null;
   public arreglo: Array<{ lat: any, lng: any, title: string}> = [
     {lat:4.5646909859967,lng:-74.1650178231759, title:'DESARROLLO ARBORIZADORA ALTA'}, 
@@ -18,7 +22,7 @@ export class VistaParquePage implements OnInit {
   constructor(public navCtrl: NavController,private geolocation:Geolocation, public load:LoadingController) { }
 
   ngOnInit() {
-    this.loadMap();
+    //this.loadMap();
   }
   irCoordenadaParque() {
     this.navCtrl.navigateForward("coordenada-uno");
@@ -28,6 +32,12 @@ export class VistaParquePage implements OnInit {
     this.navCtrl.navigateForward('ambientes');
   }
 
+ 
+
+
+
+
+  /*
   async loadMap(){
     //Metodo o funcion que utilizamos para pintar icono de ubicacion, en donde se encuentre ubicado el dispositivo
     const loadging =  await this.load.create();
@@ -70,6 +80,6 @@ export class VistaParquePage implements OnInit {
    }
    currentLocate(event){
      console.log(event);
-   }
+   }*/
 
 }

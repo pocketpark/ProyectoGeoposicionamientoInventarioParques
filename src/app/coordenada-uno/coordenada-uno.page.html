@@ -9,17 +9,23 @@
 <ion-content>
   <ion-card class="espacio">
     <ion-card-header>
-      <ion-card-title>Coordenadas del parque</ion-card-title>
+      <ion-card-title>Buscar parque</ion-card-title>
     </ion-card-header>
+  
+    <ion-searchbar showCancelButton cancelButtonText="Custom Cancel"></ion-searchbar>
     <ion-img src="/assets/imagenes/mapaCordenadas.jpg"></ion-img>
+  
     <ion-item class="espaciocordenada">
-      <ion-label>Coordenada X</ion-label>
+      <ion-label> Parque 1</ion-label>
       <ion-input [(ngModel)]='coordenadaX' name='coordenadaX'></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Coordenada Y</ion-label>
+      <ion-label> Parque 2</ion-label>
       <ion-input [(ngModel)]='coordenadaY' name='coordenadaY'></ion-input>
     </ion-item>
+    <ion-item>
+        <ion-label> Parque 3</ion-label>
+      </ion-item>
       <ion-button class='i' (click)="irinicio()" name="Cancelar"  color="primary">Cancelar</ion-button>
       <ion-button class='i' (click)="validarCoordenadas()" name="VistaParque" color="primary">Consultar</ion-button>
   </ion-card>
