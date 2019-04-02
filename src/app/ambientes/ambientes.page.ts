@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NavController,ModalController,AlertController} from "@ionic/angular";
 import { AmbienteModalPage } from '../ambiente-modal/ambiente-modal.page'
-
+import { AgmCoreModule } from '@agm/core';
 @Component({
   selector: 'app-ambientes',
   templateUrl: './ambientes.page.html',
   styleUrls: ['./ambientes.page.scss'],
 })
 export class AmbientesPage implements OnInit {
+  title: string = ' ';
+  lat: number;
+  lng: number;
   public ambiente:any='';
   public estadoAmbiente:any='';
   public coordenasX:any='';
@@ -73,6 +76,15 @@ export class AmbientesPage implements OnInit {
       buttons: ['Aceptar']
     });
     await alert.present();
+  }
+  getUserLocation(){
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(position=>{
+        this.lat= position.coords.latitude;
+        this.lng= position.coords.longitude;
+        
+      });
+    }
   }
   // async presentAlertConfirm() {
   //   const alert = await this.alertController.create({

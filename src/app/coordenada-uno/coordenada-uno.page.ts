@@ -6,8 +6,7 @@ import { NavController,AlertController  } from "@ionic/angular";
   styleUrls: ['./coordenada-uno.page.scss'],
 })
 export class CoordenadaUnoPage implements OnInit {
-  public coordenadaX:any;
-  public coordenadaY:any;
+  public listPark:any='';
   constructor(public navCtrl: NavController,public alertController: AlertController) { }
 
   ngOnInit() {
@@ -17,12 +16,13 @@ export class CoordenadaUnoPage implements OnInit {
   }
 
   validarCoordenadas(){
-    if(this.coordenadaX==1 && this.coordenadaY==1){
+    if(this.listPark!=''){
       this.irVistaParque();
     }else{
       this.presentAlert();
     }
   }
+  //Falta validar ubicacion actual vs ubicacion parque
   irVistaParque() {
     this.navCtrl.navigateForward("vista-parque");
   }

@@ -11,21 +11,28 @@
     <ion-card-header>
       <ion-card-title>Buscar parque</ion-card-title>
     </ion-card-header>
-  
-    <ion-searchbar showCancelButton cancelButtonText="Custom Cancel"></ion-searchbar>
-    <ion-img src="/assets/imagenes/mapaCordenadas.jpg"></ion-img>
-  
-    <ion-item class="espaciocordenada">
-      <ion-label> Parque 1</ion-label>
-      <ion-input [(ngModel)]='coordenadaX' name='coordenadaX'></ion-input>
+
+
+    <ion-img src="/assets/imagenes/parqueotono.png"></ion-img>
+
+   <!-- <ion-item class="espaciocordenada" -->
+    <!-- <ion-label> Parque 1</ion-label> -->
+   <!--  <ion-input [(ngModel)]='coordenadaX' name='coordenadaX'></ion-input>-->
+   <!--</ion-item-->
+   <!--<ion-item>-->
+   <!--  <ion-label> Parque 2</ion-label>-->
+   <!--  <ion-input [(ngModel)]='coordenadaY' name='coordenadaY'></ion-input>-->
+   <!--</ion-item> -->
+   <ion-item>
+      <ion-label>Parques</ion-label>
+      <ion-select  [(ngModel)]="listPark" name="listPark" okText="Aceptar" cancelText="Cancelar">
+        <ion-select-option value="ParqueUno">Parque 1</ion-select-option>
+        <ion-select-option value="ParqueDos"> Parque 2</ion-select-option>
+        <ion-select-option value="ParqueTres">Parque 3</ion-select-option>
+        <ion-select-option value="ParqueCuatro">Parque 4</ion-select-option>
+        <ion-select-option value="ParqueCinco">Parque 5</ion-select-option>
+      </ion-select>
     </ion-item>
-    <ion-item>
-      <ion-label> Parque 2</ion-label>
-      <ion-input [(ngModel)]='coordenadaY' name='coordenadaY'></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label> Parque 3</ion-label>
-      </ion-item>
       <ion-button class='i' (click)="irinicio()" name="Cancelar"  color="primary">Cancelar</ion-button>
       <ion-button class='i' (click)="validarCoordenadas()" name="VistaParque" color="primary">Consultar</ion-button>
   </ion-card>

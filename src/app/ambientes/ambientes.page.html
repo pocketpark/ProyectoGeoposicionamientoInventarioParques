@@ -30,6 +30,9 @@
       <ion-label type='text'>GeoReferenciar</ion-label>
       <ion-icon name="locate"></ion-icon>
     </ion-item>
+    <agm-map [zoom]= "zoom"  [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
     <ion-item *ngIf="this.estadoAmbiente!=''">
       <ion-label>Coordenada X</ion-label>
       <!-- quitar el value y hacer la funcion de la geo refenrenciacion,con la api y asi tome el valor en el input-->
