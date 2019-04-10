@@ -47,7 +47,6 @@ export class AmbientesPage implements OnInit {
     });
   }
   irVistaParque() {
-    console.log(this.ambiente);
     this.navCtrl.navigateForward("vista-parque");
   }
   // falta poner en la validacion de las coordenadas y la foto, cuando se consuma la API

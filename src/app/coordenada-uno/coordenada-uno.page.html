@@ -34,6 +34,6 @@
       </ion-select>
     </ion-item>
       <ion-button class='i' (click)="irinicio()" name="Cancelar"  color="primary">Cancelar</ion-button>
-      <ion-button class='i' (click)="validarCoordenadas()" name="VistaParque" color="primary">Consultar</ion-button>
+      <ion-button class='i' (click)="validarCoordenadas()" name="VistaParque" color="primary" [disabled]='listPark==""'>Consultar</ion-button>
   </ion-card>
 </ion-content>

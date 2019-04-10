@@ -11,22 +11,33 @@
 
 <ion-content>
   <ion-card class="espacio">
-    <ion-card-header>
-      <ion-card-title>Bienvenido a MIRLA</ion-card-title>
-      <ion-card-subtitle>Medicion Integrada de Recursos y Levantamiento de Ambiente</ion-card-subtitle>
-    </ion-card-header>
-    <ion-img class="iconoinicio" src="/assets/imagenes/icon.png"></ion-img>
+    <div *ngIf='this.divInformacion'>
+      <ion-card-header>
+        <ion-card-title>Bienvenido a MIRLA</ion-card-title>
+        <ion-card-subtitle>Medicion Integrada de Recursos y Levantamiento de Ambiente</ion-card-subtitle>
+      </ion-card-header>
+      <ion-img class="iconoinicio" src="/assets/imagenes/icon.png"></ion-img>
+    </div>
 
-    <ion-item>
+    <ion-item *ngIf='this.divContenedor'>
+      <ion-img class="iconoinicio" src="/assets/imagenes/icon.png"></ion-img>
+    </ion-item>
+    <div class="usuarioLabel" *ngIf='this.usuario=="" && this.divContenedor'>
+      <ion-label>Ingresa tu usuario</ion-label>
+    </div>
+    <ion-item *ngIf='this.divContenedor'>
       <ion-label> Usuario </ion-label>
       <ion-input type='text' [(ngModel)]="usuario" name='usuario'></ion-input>
     </ion-item>
-
-    <ion-item>
+    <div class="usuarioLabel" *ngIf='this.usuario =="parque" && this.contrasena=="" && this.divContenedor'>
+        <ion-label>Ingresa tu contraseña</ion-label>
+      </div>
+    <ion-item *ngIf='this.usuario == "parque" '>
       <ion-label> Contraseña </ion-label>
       <ion-input type='password' [(ngModel)]="contrasena" name='contrasena'></ion-input>
     </ion-item>
-    <ion-button *ngIf="this.usuario=='parque' && this.contrasena=='mapa' " (click)="ircoordenadas()" name="inicio" class="i" color="primary">Iniciar</ion-button>
-    <ion-button> Registrarse</ion-button>
+    <ion-button *ngIf="this.usuario=='parque' && this.contrasena=='mapa' " (click)="ircoordenadas()" name="inicio"
+      class="i" color="primary">Iniciar</ion-button>
+    <ion-button *ngIf='this.divContenedor'> Registrarse</ion-button>
   </ion-card>
 </ion-content>

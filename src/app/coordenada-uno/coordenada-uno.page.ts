@@ -7,9 +7,13 @@ import { NavController,AlertController  } from "@ionic/angular";
 })
 export class CoordenadaUnoPage implements OnInit {
   public listPark:any='';
+  public VistaParque:boolean=false;
+
+  
   constructor(public navCtrl: NavController,public alertController: AlertController) { }
 
   ngOnInit() {
+    
   }
   irinicio() {
     this.navCtrl.navigateForward("home");
@@ -34,6 +38,5 @@ export class CoordenadaUnoPage implements OnInit {
     });
     await alert.present();
   }
-
-
+  
 }
