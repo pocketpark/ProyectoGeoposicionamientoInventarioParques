@@ -11,20 +11,18 @@
     <ion-item>
       <ion-label>Seleccione un Ambiente</ion-label>
       <ion-select [(ngModel)]="ambiente" name="ambiente" okText="Aceptar" cancelText="Cancelar">
-        <ion-select-option value="Cancha">Cancha</ion-select-option>
-        <ion-select-option value="Gimnasio">Gimnasio </ion-select-option>
-        <ion-select-option value="ZonaVerde">Zona verde</ion-select-option>
-        <ion-select-option value="Atracciones">Atracciones</ion-select-option>
+        <ion-select-option *ngFor='let item of ambienteArreglo' value="{{item.id}}">{{item.zona}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item *ngIf="this.ambiente!=''">
       <ion-label>Estado</ion-label>
+      <ion-icon name="add-circle"></ion-icon>
       <ion-select [(ngModel)]="estadoAmbiente" name="estadoAmbiente" okText="Aceptar" cancelText="Cancelar">
-        <ion-select-option value="Excelente">Excelente</ion-select-option>
-        <ion-select-option value="Sobresaliente">Sobresaliente </ion-select-option>
-        <ion-select-option value="Aceptable">Aceptable</ion-select-option>
-        <ion-select-option value="Insuficiente">Insuficiente</ion-select-option>
-        <ion-select-option value="Deficiente">Deficiente</ion-select-option>
+          <ion-select-option *ngFor='let item of estadoArreglo' value="{{item.valor}}">
+            {{item.valor}}
+            <ion-item *ngIf="this.ambiente!=''"><img src="../../assets/icon/favicon.png"></ion-item>
+
+          </ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item *ngIf="this.estadoAmbiente!=''">

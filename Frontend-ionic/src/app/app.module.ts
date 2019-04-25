@@ -12,6 +12,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AmbienteModalPage } from '../app/ambiente-modal/ambiente-modal.page'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AgmCoreModule } from '@agm/core';
+import { HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent,AmbienteModalPage],
   entryComponents: [AmbienteModalPage],
@@ -21,7 +22,8 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDaR1UQkPHJFMmXplt8vcHo2eQ-BCMV4hE'
     }),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,

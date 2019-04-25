@@ -1,34 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { NavController,ModalController,AlertController} from "@ionic/angular";
+import { NavController, ModalController, AlertController } from "@ionic/angular";
 import { AmbienteModalPage } from '../ambiente-modal/ambiente-modal.page'
 import { AgmCoreModule } from '@agm/core';
+import { ServicioService } from '../servicios/servicio.service';
+declare var jQuery: any;
+declare var $: any;
 @Component({
   selector: 'app-ambientes',
   templateUrl: './ambientes.page.html',
   styleUrls: ['./ambientes.page.scss'],
 })
 export class AmbientesPage implements OnInit {
-  showPark:boolean=false;
+  showPark: boolean = false;
   title: string = ' ';
   lat: number;
   lng: number;
   zoom: number = 8;
-  public ambiente:any='';
-  public estadoAmbiente:any='';
-  public coordenasX:any='';
-  public coordenasY:any='';
-  public novedad:any='';
+  public ambiente: any = '';
+  public estadoAmbiente: any = '';
+  public coordenasX: any = '';
+  public coordenasY: any = '';
+  public novedad: any = '';
   constructor(
     public alertController: AlertController,
     private camera: Camera,
     public navCtrl: NavController,
-    public modalController: ModalController
+    public modalController: ModalController,
+    public servicio: ServicioService
     //,public alertController: AlertController
-    ) { 
-    }
-
+  ) {
+  }
+  ambienteArreglo: any[];
+  estadoArreglo: any[];
   ngOnInit() {
+    this.servicio.getAmbientes().subscribe(
+      data => {
+        this.ambienteArreglo = data;
+        console.log(data)
+      },
+      erro => console.log(erro)
+    );
+    this.servicio.getEscalas().subscribe(
+      data => {
+        this.estadoArreglo = data;
+        console.log(data)
+      },
+      erro => console.log(erro)
+    );
   }
   tomarFoto() {
     const options: CameraOptions = {
@@ -50,25 +69,25 @@ export class AmbientesPage implements OnInit {
     this.navCtrl.navigateForward("vista-parque");
   }
   // falta poner en la validacion de las coordenadas y la foto, cuando se consuma la API
-  validarFormulario(){
-    if(this.ambiente=='' || this.estadoAmbiente=='' || this.novedad==''){
+  validarFormulario() {
+    if (this.ambiente == '' || this.estadoAmbiente == '' || this.novedad == '') {
       this.presentAlert();
-    }else{
+    } else {
       this.mostrarModal();
     }
   }
-  async  mostrarModal(){
-      const modal = await this.modalController.create({
-        component: AmbienteModalPage,
-        componentProps: { 
-          nombreambiente: this.ambiente, 
-          nombreestadoambiente:this.estadoAmbiente, 
-          nombrecoordenadax: this.coordenasX, 
-          nombrecoordenaday:this.coordenasY, 
-          nombrenovedad:this.novedad,
-        }
-      });
-      return await modal.present();
+  async  mostrarModal() {
+    const modal = await this.modalController.create({
+      component: AmbienteModalPage,
+      componentProps: {
+        nombreambiente: this.ambiente,
+        nombreestadoambiente: this.estadoAmbiente,
+        nombrecoordenadax: this.coordenasX,
+        nombrecoordenaday: this.coordenasY,
+        nombrenovedad: this.novedad,
+      }
+    });
+    return await modal.present();
   }
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -78,12 +97,12 @@ export class AmbientesPage implements OnInit {
     });
     await alert.present();
   }
-  getUserLocation(value){
-    this.showPark=value;
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(position=>{
-        this.lat= position.coords.latitude;
-        this.lng= position.coords.longitude;
+  getUserLocation(value) {
+    this.showPark = value;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
       });
     }
   }
