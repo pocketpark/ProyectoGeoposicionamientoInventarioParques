@@ -20,8 +20,7 @@
       <ion-select [(ngModel)]="estadoAmbiente" name="estadoAmbiente" okText="Aceptar" cancelText="Cancelar">
           <ion-select-option *ngFor='let item of estadoArreglo' value="{{item.valor}}">
             {{item.valor}}
-            <ion-item *ngIf="this.ambiente!=''"><img src="../../assets/icon/favicon.png"></ion-item>
-
+            <ion-item *ngIf="this.ambiente!=''"></ion-item>
           </ion-select-option>
       </ion-select>
     </ion-item>
