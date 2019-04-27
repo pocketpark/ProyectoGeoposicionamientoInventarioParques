@@ -1,9 +1,13 @@
-const  users= require("../resources/users");
+const  ambientes= require("../resources/ambientes");
+const  escalas= require("../resources/escala");
 module.exports={
-    getUser:function(){
-        console.log("index js db todos!!1");
-        return users;
-
+    getAmbientes:function(){
+        console.log("solicitud de ambientes");
+        return ambientes;
+    },
+    getEscalas:function(){
+        console.log("solicitud de escalas");
+        return escalas ;
     },
     getUserById:function(id){
         console.log("index js db solo user");
