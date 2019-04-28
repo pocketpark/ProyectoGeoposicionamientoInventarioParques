@@ -26,11 +26,7 @@
    <ion-item>
       <ion-label>Parques</ion-label>
       <ion-select  [(ngModel)]="listPark" name="listPark" okText="Aceptar" cancelText="Cancelar">
-        <ion-select-option value="ParqueUno">Parque 1</ion-select-option>
-        <ion-select-option value="ParqueDos"> Parque 2</ion-select-option>
-        <ion-select-option value="ParqueTres">Parque 3</ion-select-option>
-        <ion-select-option value="ParqueCuatro">Parque 4</ion-select-option>
-        <ion-select-option value="ParqueCinco">Parque 5</ion-select-option>
+        <ion-select-option *ngFor='let item of parqueArreglo' >{{item.NombrePar}}</ion-select-option>
       </ion-select>
     </ion-item>
       <ion-button class='i' (click)="irinicio()" name="Cancelar"  color="primary">Cancelar</ion-button>

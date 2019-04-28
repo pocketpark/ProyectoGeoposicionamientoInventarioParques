@@ -15,6 +15,10 @@ module.exports = function (app) {
             const query = db.getEscalas();
             res.json(query);
         }),
+        app.get(`${API_BASE}/parques`, (req, res) => {
+            const query = db.getParques();
+            res.json(query);
+        }),
         app.get(`${API_BASE}/user/:id`, (req, res) => {
             const query = db.getUserById(req.params.id);
             res.json(query);

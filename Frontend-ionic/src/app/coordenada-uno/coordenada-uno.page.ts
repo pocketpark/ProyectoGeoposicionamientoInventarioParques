@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController,AlertController  } from "@ionic/angular";
+import { ServicioService } from '../servicios/servicio.service';
 @Component({
   selector: 'app-coordenada-uno',
   templateUrl: './coordenada-uno.page.html',
@@ -8,12 +9,25 @@ import { NavController,AlertController  } from "@ionic/angular";
 export class CoordenadaUnoPage implements OnInit {
   public listPark:any='';
   public VistaParque:boolean=false;
+  public parqueArreglo: any;
 
+    constructor(public navCtrl: NavController,public alertController: AlertController,public servicio: ServicioService) { }
   
-  constructor(public navCtrl: NavController,public alertController: AlertController) { }
-
+  
   ngOnInit() {
-    
+    this.servicio.getParque().subscribe(
+      data => {
+        //debugger;
+        this.parqueArreglo = data;
+        // for(let i=0; data['features'].length;i++){
+        //     //console.log(data['features'][i]);
+        //     console.log(data['features']);
+        //        }
+        //console.log(data['features'][0]['properties']['NombrePar'])
+        console.log(this.parqueArreglo );
+      },
+      erro => console.log(erro)
+    );
   }
   irinicio() {
     this.navCtrl.navigateForward("home");
