@@ -34,7 +34,8 @@ const routes: Routes = [
   { 
     path: 'registro-exitoso',
     loadChildren: './registro-exitoso/registro-exitoso.module#RegistroExitosoPageModule'
-   }
+   },  { path: 'registro', loadChildren: './registro/registro.module#RegistroPageModule' }
+
 ];
 
 @NgModule({

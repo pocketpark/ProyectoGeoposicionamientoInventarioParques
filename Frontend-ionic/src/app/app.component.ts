@@ -16,6 +16,11 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'Registrarse',
+      url: '/registro',
+      icon: 'list'
+    },
+    {
       title: 'Historial de registro',
       url: '/list',
       icon: 'list'

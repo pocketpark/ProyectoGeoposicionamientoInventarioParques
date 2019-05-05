@@ -21,6 +21,7 @@
     <ion-item *ngIf='this.divContenedor'>
       <img class="iconoinicio" src="assets/imagenes/iconoPocketPark.png">
     </ion-item>
+    <!--Ingresa y valida el usuario -->
     <div class="usuarioLabel" *ngIf='this.usuario=="" && this.divContenedor'>
       <ion-label>Ingresa tu usuario</ion-label>
     </div>
@@ -28,15 +29,22 @@
       <ion-label> Usuario </ion-label>
       <ion-input type='text' [(ngModel)]="usuario" name='usuario'></ion-input>
     </ion-item>
-    <div class="usuarioLabel" *ngIf='this.usuario =="parque" && this.contrasena=="" && this.divContenedor'>
-        <ion-label>Ingresa tu contraseña</ion-label>
-      </div>
+    <div class="usuarioLabel"  *ngIf='this.usuario !="parque"  && this.divContenedor'>
+      <ion-label>Usuario incorrecto</ion-label>
+    </div>
+
+    <!--Ingresa y valida la contraseña -->
+    <div class="usuarioLabel" *ngIf='this.usuario =="parque" && this.contrasena=="mapa" && this.divContenedor'>
+      <ion-label>Ingresa tu contraseña</ion-label>
+    </div>
     <ion-item *ngIf='this.usuario == "parque" '>
       <ion-label> Contraseña </ion-label>
       <ion-input type='password' [(ngModel)]="contrasena" name='contrasena'></ion-input>
     </ion-item>
+    <div class="usuarioLabel" *ngIf='this.usuario =="parque" && this.contrasena!="mapa" && this.divContenedor'>
+      <ion-label>Contraseña incorrecta</ion-label>
+    </div>
     <ion-button *ngIf="this.usuario=='parque' && this.contrasena=='mapa' " (click)="ircoordenadas()" name="inicio"
       class="i" color="primary">Iniciar</ion-button>
-    <ion-button *ngIf='this.divContenedor'> Registrarse</ion-button>
   </ion-card>
 </ion-content>
